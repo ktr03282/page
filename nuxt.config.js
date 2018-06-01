@@ -53,5 +53,10 @@ module.exports = {
       accent: '#8c9eff',
       error: '#b71c1c'
     }
-  }
+  },
+  vendor: [
+    '~/plugins/vuetify.js',
+    'chart.js',
+    'vue-chartjs'
+  ]
 }
