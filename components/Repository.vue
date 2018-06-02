@@ -2,9 +2,12 @@
   div
     v-card(flat tile)
       v-card-title
-        h3 {{ repository.name }}
+        a(v-bind:href="repository.html_url")
+          h3 {{ repository.name }}
       v-container(fluid)
         Doughnut.graph(v-if="Object.keys(languages).length > 1" v-bind:data="languages" v-bind:options="options")
+      v-card-title
+        span(style="font-size: 0.8em; opacity: 0.7") {{ repository.description }}
 </template>
 
 <script>
