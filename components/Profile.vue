@@ -1,31 +1,38 @@
 <template lang="pug">
   v-container()
-    h2 プロフィール
     v-content
       v-card
+        v-toolbar(color="secondary" flat)
+          v-toolbar-title
+            v-icon(color="primary" medium) account_circle
+            span プロフィール
         v-container(fluid)
           v-content
-            div
-              div.headline Name
-              p ktr03282
-        v-container(fluid)
-          v-content
-            div
-              div.headline 詳細
-              p 専門学校 3回生
-        v-container(fluid)
-          v-content
-            div.headline だいたいこんな人
+            div.headline Who?
             v-layout(row wrap)
               v-flex(md6)
-                RadarChart(:data="radar.charactar" :options="radar.options" style="max-width: 300px")
+                img(src="/profile.jpg" style="width: 70%")
               v-flex(md6)
-                RadarChart(:data="radar.skill" :options="radar.options" style="max-width: 300px")
+                transition(name="detail" v-for="(text, index) in profile.detail.texts" :key="index")
+                  p {{text}}
+                p
+                  a(href="https://github.com/ktr0328") 開発用GitHub
+                p
+                  a(href="https://github.com/ktr03282") 公開用GitHub
+                p
+                  a(href="https://scrapbox.io/ktr0328/") Scrapbox
         v-container(fluid)
           v-content
-            div.headline 言語習得度
+            div.headline Ability
+            v-layout(row wrap)
+              v-flex(md6)
+                RadarChart(:data="radar.charactar" :options="radar.options" style="max-width: 280px")
+              v-flex(md6)
+                RadarChart(:data="radar.skill" :options="radar.options" style="max-width: 280px")
+        v-container(fluid)
+          v-content
+            div.headline Language
             RadarChart(:data="radar.language" :options="radar.options" style="max-width: 400px")
-
 </template>
 
 <script>
@@ -42,6 +49,24 @@ export default {
   name: "profile",
   data() {
     return {
+      profile: {
+        name: "ktr0328",
+        detail: {
+          texts: [
+            "名前: ktr0328",
+            "1992/3/28生まれ。",
+            "京都在住・専門学校3回生。",
+            "兵庫県神戸市育ち。",
+            "コーヒーが好き。",
+            "プログラミング3年目のぺーぺー。",
+            "フロントエンドのコーディングが強みだが、別段好きでもないという矛盾を抱えている。",
+            "学習のモチベーションは全て好奇心。",
+            "やりたいことが多すぎて、時間が圧倒的に足りないのが悩み。",
+            "現在、HaskellやDocker、AWSを学習中。"
+          ]
+        },
+        Supplement: {}
+      },
       radar: {
         charactar: {
           labels: [
@@ -72,20 +97,20 @@ export default {
             {
               borderColor: colors.yellow,
               backgroundColor: colors.yellow,
-              data: [6, 3, 3, 2, 4]
+              data: [7, 4, 4, 3, 5]
             }
           ]
         },
         language: {
           labels: [
             "Javascript", "Node.js", "HTML/CSS", "Java",
-            "PHP", "Ruby", "Python", "Kotlin (Not Android)", "Swift", "C#"
+            "PHP", "Ruby", "Python", "Kotlin", "Swift", "C#"
           ],
           datasets: [
             {
               backgroundColor: colors.green,
               borderColor: colors.green,
-              data: [7, 7, 5, 6, 4, 3, 3, 4, 2, 2]
+              data: [8, 8, 5, 6, 4, 3, 3, 4, 2, 2]
             }
           ]
         },
@@ -112,5 +137,12 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang="sass">
+.headline
+  border-bottom: 1px solid rgba(150, 150, 150, 0.3)
+  margin-bottom: 5px
+.detail-enter-active, .detail-leave-active
+  transition: opacity 2s
+.detail-enter, .detail-leave-to
+  opacity: 0
 </style>

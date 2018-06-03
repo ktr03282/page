@@ -1,25 +1,12 @@
 <template lang="pug">
   v-app
     v-toolbar(app color="primary" dark)
-      v-toolbar-side-icon.hidden-sm-and-up(@click.stop="navBar = !navBar")
-      v-toolbar-title Portfolio
+      v-toolbar-title ktr0328
       v-spacer
       v-toolbar-items.hidden-sm-and-down
         v-btn(flat) hoge
         v-btn(flat) hoge
         v-btn(flat) hoge
-    v-navigation-drawer.hidden-sm-and-up(app v-model="navBar")
-      v-toolbar(flat color="secondary")
-        v-list
-          v-list-tile
-            v-list-tile-title a
-      v-list
-        v-list-tile
-          h3 hoge
-        v-list-tile
-          h3 hoge
-        v-list-tile
-          h3 hoge
     v-content
       v-container(fluid)
         nuxt
@@ -29,7 +16,6 @@
 export default {
   data () {
     return {
-      navBar: false
     }
   }
 }

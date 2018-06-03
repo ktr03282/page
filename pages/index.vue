@@ -1,13 +1,21 @@
 <template lang="pug">
-  section
-    Profile
-    v-container()
-      h2 GitHub
-      v-content
-        v-card
-          v-layout(row wrap)
-            v-flex(md4 v-for="e in repos" :key="e.name")
-              repository(v-bind:repository="e" v-bind:options="options")
+  div
+    section
+      v-layout(justify-center)
+        iframe(width="560" height="315" src="https://www.youtube.com/embed/KmXfQvU6zhU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen)
+    section
+      Profile
+    section
+      v-container()
+        v-content
+          v-card
+            v-toolbar(color="secondary" flat)
+              v-toolbar-title
+                v-icon(color="primary" medium) fab fa-github
+                span  GitHub
+            v-layout(row wrap)
+              v-flex(md4 v-for="e in repos" :key="e.name")
+                repository(v-bind:repository="e" v-bind:options="options")
 </template>
 
 <script>
@@ -49,7 +57,10 @@ export default {
   methods: {
     async getGitHubRepositories() {
       const res = await axios.get(
-        "https://api.github.com/users/ktr03282/repos"
+        "https://api.github.com/users/ktr03282/repos",
+        {
+          auth: { token: "8fa31bbddec4ee06c0674a85414076ec20145f2a" }
+        }
       )
 
       const repositories = res.data.map(e => {
