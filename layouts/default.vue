@@ -1,15 +1,7 @@
 <template lang="pug">
   v-app
-    v-toolbar(app color="primary" dark)
-      v-toolbar-title ktr0328
-      v-spacer
-      v-toolbar-items.hidden-sm-and-down
-        v-btn(flat) hoge
-        v-btn(flat) hoge
-        v-btn(flat) hoge
     v-content
-      v-container(fluid)
-        nuxt
+      nuxt
 </template>
 
 <script>
@@ -37,5 +29,4 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
-
 </style>

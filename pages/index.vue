@@ -1,14 +1,16 @@
 <template lang="pug">
   div
-    section
+    Content
+      img#top-image(src="/images/top.png")
+    Content#produced
       v-layout(justify-center)
         iframe(width="560" height="315" src="https://www.youtube.com/embed/KmXfQvU6zhU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen)
-    section
+    Content
       Profile
-    section
+    Content
       v-container()
         v-content
-          v-card
+          v-card(flat)
             v-toolbar(color="secondary" flat)
               v-toolbar-title
                 v-icon(color="primary" medium) fab fa-github
@@ -23,6 +25,7 @@ import Vue from "vue"
 import axios from "axios"
 import Immutable from "immutable"
 import moment from "moment"
+import Content from "~/components/Content"
 import Profile from "~/components/Profile"
 import Repository from "~/components/Repository"
 
@@ -48,6 +51,7 @@ export default {
     }
   },
   components: {
+    Content,
     Profile,
     Repository
   },
@@ -79,5 +83,12 @@ export default {
 }
 </script>
 
-<style>
+<style lang="sass">
+#top-image
+  width: 100%
+
+.fadeIn-enter-active, .fadeIn-leave-active
+  transition: opacity 2s
+.fadeIn-enter, .fadeIn-leave-to
+  opacity: 0
 </style>

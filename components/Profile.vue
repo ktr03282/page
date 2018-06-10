@@ -1,7 +1,7 @@
 <template lang="pug">
   v-container()
     v-content
-      v-card
+      v-card(flat)
         v-toolbar(color="secondary" flat)
           v-toolbar-title
             v-icon(color="primary" medium) account_circle
@@ -13,14 +13,23 @@
               v-flex(md6)
                 img(src="/profile.jpg" style="width: 70%")
               v-flex(md6)
-                transition(name="detail" v-for="(text, index) in profile.detail.texts" :key="index")
-                  p {{text}}
-                p
-                  a(href="https://github.com/ktr0328") 開発用GitHub
-                p
-                  a(href="https://github.com/ktr03282") 公開用GitHub
-                p
-                  a(href="https://scrapbox.io/ktr0328/") Scrapbox
+                p(v-for="(text, index) in profile.detail.texts" :key="index") {{text}}
+                div.social-icons
+                  div
+                    a(href="https://github.com/ktr0328")
+                      v-btn(round color="primary")
+                        v-icon fab fa-github
+                        span 開発用
+                  div
+                    a(href="https://github.com/ktr03282")
+                      v-btn(round color="primary")
+                        v-icon fab fa-github
+                        span 公開用
+                  div
+                    a(href="https://scrapbox.io/ktr0328/")
+                      v-btn(round color="primary")
+                        v-icon fas fa-sticky-note
+                        span Scrapbox
         v-container(fluid)
           v-content
             div.headline Ability
@@ -141,8 +150,8 @@ export default {
 .headline
   border-bottom: 1px solid rgba(150, 150, 150, 0.3)
   margin-bottom: 5px
-.detail-enter-active, .detail-leave-active
-  transition: opacity 2s
-.detail-enter, .detail-leave-to
-  opacity: 0
+.social-icons
+  text-align: right
+  span
+    padding-left: 5px
 </style>
