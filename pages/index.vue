@@ -1,17 +1,20 @@
 <template lang="pug">
   div
-    Content
-      img#top-image(src="/page/images/top.png")
     Content#produced
-      v-layout(justify-center)
-        iframe(width="560" height="315" src="https://www.youtube.com/embed/KmXfQvU6zhU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen)
+      v-container()
+        v-content
+          div(style="text-align: center")
+            h1 For What?
+            p GitHubリポジトリや過去に自分が作成したもの、今後やりたいことなど色々まとめていきます。
+          v-layout(justify-center)
+            iframe(width="560" height="315" src="https://www.youtube.com/embed/KmXfQvU6zhU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen)
     Content
       Profile
     Content
       v-container()
         v-content
           v-card(flat)
-            v-toolbar(color="secondary" flat)
+            v-toolbar(color="white" flat)
               v-toolbar-title
                 v-icon(color="primary" medium) fab fa-github
                 span  GitHub
@@ -55,13 +58,13 @@ export default {
     Profile,
     Repository
   },
-  mounted: async function() {
-    this.repos = await this.getGitHubRepositories()
+  mounted: function() {
+    this.setRepositories("https://api.github.com/users/ktr03282/repos")
   },
   methods: {
-    async getGitHubRepositories() {
+    async getGitHubRepositories(url) {
       const res = await axios.get(
-        "https://api.github.com/users/ktr03282/repos",
+        url,
         {
           auth: { token: "8fa31bbddec4ee06c0674a85414076ec20145f2a" }
         }
@@ -78,15 +81,15 @@ export default {
         }
       })
       return repositories
+    },
+    async setRepositories(url) {
+      this.repos = await this.getGitHubRepositories(url)
     }
   }
 }
 </script>
 
 <style lang="sass">
-#top-image
-  width: 100%
-
 .fadeIn-enter-active, .fadeIn-leave-active
   transition: opacity 2s
 .fadeIn-enter, .fadeIn-leave-to

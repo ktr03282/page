@@ -1,5 +1,6 @@
 <template lang="pug">
   v-app
+    img#top-image(src="https://user-images.githubusercontent.com/39692091/41200768-2185ac42-6ce6-11e8-8ebb-2ee243deeb13.png")
     v-content
       nuxt
 </template>
@@ -28,5 +29,9 @@ html {
 *, *:before, *:after {
   box-sizing: border-box;
   margin: 0;
+}
+
+#top-image {
+  width: 100%;
 }
 </style>

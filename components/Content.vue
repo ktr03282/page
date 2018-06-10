@@ -24,6 +24,8 @@ export default {
 
 <style lang="sass" scoped>
 .wrapper
+  padding-top: 100px
+  padding-bottom: 100px
   // text-align: center
   .content
 </style>

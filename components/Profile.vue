@@ -2,7 +2,7 @@
   v-container()
     v-content
       v-card(flat)
-        v-toolbar(color="secondary" flat)
+        v-toolbar(color="white" flat)
           v-toolbar-title
             v-icon(color="primary" medium) account_circle
             span プロフィール
@@ -11,7 +11,7 @@
             div.headline Who?
             v-layout(row wrap)
               v-flex(md6)
-                img(src="/page/profile.jpg" style="width: 70%")
+                img(src="https://user-images.githubusercontent.com/39692091/41201936-426b219c-6cfc-11e8-8428-8fce89fa68d6.png" style="width: 70%")
               v-flex(md6)
                 p(v-for="(text, index) in profile.detail.texts" :key="index") {{text}}
                 div.social-icons
