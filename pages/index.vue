@@ -1,7 +1,7 @@
 <template lang="pug">
   div
     Content
-      img#top-image(src="/images/top.png")
+      img#top-image(src="/page/images/top.png")
     Content#produced
       v-layout(justify-center)
         iframe(width="560" height="315" src="https://www.youtube.com/embed/KmXfQvU6zhU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen)

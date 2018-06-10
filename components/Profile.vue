@@ -11,7 +11,7 @@
             div.headline Who?
             v-layout(row wrap)
               v-flex(md6)
-                img(src="/profile.jpg" style="width: 70%")
+                img(src="/page/profile.jpg" style="width: 70%")
               v-flex(md6)
                 p(v-for="(text, index) in profile.detail.texts" :key="index") {{text}}
                 div.social-icons
