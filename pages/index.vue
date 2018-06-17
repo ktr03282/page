@@ -9,6 +9,8 @@
           v-layout(justify-center)
             iframe(width="560" height="315" src="https://www.youtube.com/embed/KmXfQvU6zhU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen)
     Content
+      div(style="position:relative;width:100%;height:0;padding-bottom:calc(56.25% + 40px);")
+        iframe(allowfullscreen style="position:absolute; width: 100%; height: 100%;border: solid 1px #333;" src="https://www.beautiful.ai/player/-LEoCQaYJkxoQm03Sreo/profile")
       Profile
     Content
       v-container()
